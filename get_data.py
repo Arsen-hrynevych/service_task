@@ -5,12 +5,11 @@ import lxml
 import re
 
 class WikiScraper:
-    def __init__(self, dbname, user, password, host, port):
+    def __init__(self, dbname, user, password, host):
         self.dbname = dbname
         self.user = user
         self.password = password
         self.host = host
-        self.port = port
 
     def connect(self):
         self.conn = psycopg2.connect(
@@ -18,7 +17,6 @@ class WikiScraper:
             user=self.user,
             password=self.password,
             host=self.host,
-            port=self.port
         )
         self.cur = self.conn.cursor()
 
@@ -55,8 +53,7 @@ if __name__ == '__main__':
         dbname="postgres",
         user="postgres",
         password="postgres",
-        host="db",
-        port="5432"
+        host="db"
     )
     scraper.connect()
     scraper.create_table()

@@ -2,12 +2,11 @@ import psycopg2
 
 
 class DataBase:
-    def __init__(self, dbname, user, password, host, port):
+    def __init__(self, dbname, user, password, host):
         self.dbname = dbname
         self.user = user
         self.password = password
         self.host = host
-        self.port = port
 
     def connect(self):
         self.connection = psycopg2.connect(
@@ -15,7 +14,6 @@ class DataBase:
             user=self.user,
             password=self.password,
             host=self.host,
-            port=self.port
         )
         self.cursor = self.connection.cursor()
 
@@ -46,8 +44,7 @@ if __name__ == '__main__':
         dbname="postgres",
         user="postgres",
         password="postgres",
-        host="db",
-        port="5432"
+        host="db"
     )
     db.connect()
     cursor = db.cursor
