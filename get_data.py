@@ -16,7 +16,7 @@ class WikiScraper:
             dbname=self.dbname,
             user=self.user,
             password=self.password,
-            host=self.host,
+            host=self.host
         )
         self.cur = self.conn.cursor()
 

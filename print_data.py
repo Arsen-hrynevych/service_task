@@ -13,7 +13,7 @@ class DataBase:
             dbname=self.dbname,
             user=self.user,
             password=self.password,
-            host=self.host,
+            host=self.host
         )
         self.cursor = self.connection.cursor()
 
